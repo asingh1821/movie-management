@@ -88,6 +88,7 @@ public class MediaServiceImp implements  MediaService{
     public Movie updateMovie(Long id, Movie movie) {
                 Movie movie1 =  mediaRepository.findById(id)
                         .orElseThrow(()-> new RuntimeException("Movie not found" + id));
+                logger.info("movie fetched");
                 movie1.setName(movie.getName());
                 movie1.setGenre(movie.getGenre());
                 return mediaRepository.save(movie1);
