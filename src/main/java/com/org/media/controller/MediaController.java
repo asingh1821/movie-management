@@ -44,6 +44,8 @@ public class MediaController {
     public List<Movie> getAllMovie(){
        return mediaService.getAllMovie();
 
+
+
     }
 
     @PutMapping("/movie/{id}")
