@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service
 public class MediaServiceImp implements  MediaService{
 
-    Logger logger = LoggerFactory.getLogger(MediaServiceImp.class);
+    Logger logger = LoggerFactory.getLogger("hello");
 
 
     @Autowired
@@ -32,6 +32,11 @@ public class MediaServiceImp implements  MediaService{
         this.mediaRepository = mediaRepository;
     }
 
+    /**
+     *
+     * @param movie
+     * @return
+     */
     @Override
     public String saveName(Movie movie) {
         List<String> existsMovie  = mediaRepository.findByName(movie.getName());
@@ -58,6 +63,11 @@ public class MediaServiceImp implements  MediaService{
 
     }
 
+    /**
+     *
+     * @param movie
+     * @return
+     */
     @Override
     public String saveAll(List<Movie> movie) {
          int savedMovies = 0, notSavedMovies = 0;
@@ -72,7 +82,6 @@ public class MediaServiceImp implements  MediaService{
         return ("Movie not added "+notSavedMovies +"   movie added "+ savedMovies);
 
     }
-
 
     @Override
     public Movie getMovieById(Long id){
